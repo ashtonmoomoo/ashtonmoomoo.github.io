@@ -1,3 +1,14 @@
 export default function Home() {
-  return <p>Hello world!</p>;
+  return (
+    <>
+      <h1>Ashton Moore</h1>
+      <a
+        href="https://ashtonmooredevartefacts.s3.ap-southeast-2.amazonaws.com/ashton_moore_cv.pdf"
+        target="_blank"
+        rel="noreferrer"
+      >
+        CV
+      </a>
+    </>
+  );
 }
