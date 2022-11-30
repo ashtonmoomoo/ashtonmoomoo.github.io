@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=JetBrains+Mono:regular,bold,italic&subset=latin,latin-ext');
+
+body {
+  font-family: 'JetBrains Mono', mono;
+  background-color: #6b6b6b;
+}
+
+.boxed-text {
+  width: fit-content;
+  padding: 6px 12px;
+  background-color: white;
+}
+
+.boxed-text:hover {
+  box-shadow: -4px 4px black;
+  transition: box-shadow 0.2s;
+}
+
+.link {
+  margin: 12px;
+}
