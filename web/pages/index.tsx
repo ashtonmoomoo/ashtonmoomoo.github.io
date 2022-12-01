@@ -1,12 +1,12 @@
 import Head from "next/head";
 
 function Title({ title }: { title: string }) {
-  return <h1 className="boxed-text">{title}</h1>;
+  return <h1 className="boxed-text shadow">{title}</h1>;
 }
 
 function Link({ href, label }: { href: string; label: string }) {
   return (
-    <div className="link boxed-text">
+    <div className="link boxed-text shadow-animation">
       <a href={href} target="_blank" rel="noreferrer">
         {label}
       </a>

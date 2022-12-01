@@ -11,9 +11,17 @@ body {
   background-color: white;
 }
 
-.boxed-text:hover {
+.shadow {
   box-shadow: -4px 4px black;
-  transition: box-shadow 0.2s;
+}
+
+.shadow-animation {
+  transition: box-shadow 0.3s;
+}
+
+.shadow-animation:hover {
+  box-shadow: -4px 4px black;
+  transition: box-shadow 0.3s;
 }
 
 .link {
