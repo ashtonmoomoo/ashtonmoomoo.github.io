@@ -2,20 +2,56 @@
 
 body {
   font-family: 'JetBrains Mono', mono;
-  background-color: #6b6b6b;
+  font-size: x-large;
+  background-color: #6f9d6d;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 3fr;
+}
+
+.wrapper {
+  grid-column: 2 / 2;
+  grid-row: 2 / 2;
+  margin: 0 auto;
+}
+
+.title {
+  margin: 0 auto;
+}
+
+.description {
+  font-style: italic;
+  margin: 12px auto;
+}
+
+.links {
+  margin: 16px;
+}
+
+.link {
+  margin: 12px 6px;
+  color: black;
 }
 
 .boxed-text {
   width: fit-content;
   padding: 6px 12px;
   background-color: white;
+  border-radius: 6px;
 }
 
-.boxed-text:hover {
+.shadow {
   box-shadow: -4px 4px black;
-  transition: box-shadow 0.2s;
 }
 
-.link {
-  margin: 12px;
+.shadow-animation {
+  transition: box-shadow 0.3s;
+}
+
+.shadow-animation:hover {
+  box-shadow: -4px 4px black;
+  transition: box-shadow 0.3s;
 }
