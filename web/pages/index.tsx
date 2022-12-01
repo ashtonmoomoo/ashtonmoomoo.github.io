@@ -25,6 +25,7 @@ export default function Home() {
     <>
       <Head>
         <title>Ashton Moore</title>
+        <link rel="icon" href="static/favicon.ico" />
       </Head>
       <div className="container">
         <div className="wrapper">
