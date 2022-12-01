@@ -6,8 +6,8 @@ function Title({ title }: { title: string }) {
 
 function Link({ href, label }: { href: string; label: string }) {
   return (
-    <a href={href} target="_blank" rel="noreferrer">
-      <span className="link boxed-text shadow-animation">{label}</span>
+    <a href={href} target="_blank" rel="noreferrer" className="link">
+      <span className=" boxed-text shadow-animation">{label}</span>
     </a>
   );
 }
