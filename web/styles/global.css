@@ -18,6 +18,15 @@ body {
   margin: 0 auto;
 }
 
+.title {
+  margin: 0 auto;
+}
+
+.description {
+  font-style: italic;
+  margin: 12px auto;
+}
+
 .links > .link {
   margin: 12px auto;
 }

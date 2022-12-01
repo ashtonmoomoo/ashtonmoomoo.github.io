@@ -1,7 +1,7 @@
 import Head from "next/head";
 
 function Title({ title }: { title: string }) {
-  return <h1 className="boxed-text shadow">{title}</h1>;
+  return <h1 className="boxed-text shadow title">{title}</h1>;
 }
 
 function Link({ href, label }: { href: string; label: string }) {
@@ -10,6 +10,14 @@ function Link({ href, label }: { href: string; label: string }) {
       <a href={href} target="_blank" rel="noreferrer">
         {label}
       </a>
+    </div>
+  );
+}
+
+function Description() {
+  return (
+    <div>
+      <p className="boxed-text description">Software Engineer</p>
     </div>
   );
 }
@@ -23,6 +31,7 @@ export default function Home() {
       <div className="container">
         <div className="wrapper">
           <Title title="Ashton Moore" />
+          <Description />
           <div className="links">
             <Link
               href="https://ashtonmooredevartefacts.s3.ap-southeast-2.amazonaws.com/ashton_moore_cv.pdf"
