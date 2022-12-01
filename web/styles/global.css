@@ -27,8 +27,12 @@ body {
   margin: 12px auto;
 }
 
-.links > .link {
-  margin: 12px auto;
+.links {
+  margin: 16px;
+}
+
+.link {
+  margin: 12px 6px;
 }
 
 .boxed-text {
@@ -48,8 +52,4 @@ body {
 .shadow-animation:hover {
   box-shadow: -4px 4px black;
   transition: box-shadow 0.3s;
-}
-
-.link {
-  margin: 12px;
 }

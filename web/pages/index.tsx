@@ -6,11 +6,11 @@ function Title({ title }: { title: string }) {
 
 function Link({ href, label }: { href: string; label: string }) {
   return (
-    <div className="link boxed-text shadow-animation">
+    <span className="link boxed-text shadow-animation">
       <a href={href} target="_blank" rel="noreferrer">
         {label}
       </a>
-    </div>
+    </span>
   );
 }
 
