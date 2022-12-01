@@ -2,7 +2,24 @@
 
 body {
   font-family: 'JetBrains Mono', mono;
+  font-size: large;
   background-color: #6b6b6b;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 3fr;
+}
+
+.wrapper {
+  grid-column: 2 / 2;
+  grid-row: 2 / 2;
+  margin: 0 auto;
+}
+
+.links > .link {
+  margin: 12px auto;
 }
 
 .boxed-text {

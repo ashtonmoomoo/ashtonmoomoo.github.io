@@ -20,13 +20,22 @@ export default function Home() {
       <Head>
         <title>Ashton Moore</title>
       </Head>
-      <Title title="Ashton Moore" />
-      <Link
-        href="https://ashtonmooredevartefacts.s3.ap-southeast-2.amazonaws.com/ashton_moore_cv.pdf"
-        label="CV"
-      />
-      <Link href="https://www.linkedin.com/in/ashtoncmoore/" label="LinkedIn" />
-      <Link href="https://github.com/ashtonmoomoo" label="Github" />
+      <div className="container">
+        <div className="wrapper">
+          <Title title="Ashton Moore" />
+          <div className="links">
+            <Link
+              href="https://ashtonmooredevartefacts.s3.ap-southeast-2.amazonaws.com/ashton_moore_cv.pdf"
+              label="CV"
+            />
+            <Link
+              href="https://www.linkedin.com/in/ashtoncmoore/"
+              label="LinkedIn"
+            />
+            <Link href="https://github.com/ashtonmoomoo" label="Github" />
+          </div>
+        </div>
+      </div>
     </>
   );
 }
