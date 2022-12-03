@@ -1,5 +1,7 @@
 import Head from "next/head";
 
+import posts, { Post } from "../content";
+
 function Title({ title }: { title: string }) {
   return <h1 className="boxed-text shadow title">{title}</h1>;
 }
@@ -13,9 +15,30 @@ function Link({ href, label }: { href: string; label: string }) {
 }
 
 function Description() {
+  return <p className="boxed-text description">Software Engineer</p>;
+}
+
+function PostCard({ post }: { post: Post }) {
+  const { id, posted, summary, title } = post;
+
   return (
-    <div>
-      <p className="boxed-text description">Software Engineer</p>
+    <div className="post">
+      <a href={`/posts/${id}`} className="post-link">
+        <h3 className="post-title">{title}</h3>
+      </a>
+      <p className="post-summary">{summary}</p>
+      <p>{posted.toLocaleDateString()}</p>
+    </div>
+  );
+}
+
+function Posts() {
+  return (
+    <div className="posts boxed-text">
+      <h2 className="posts-header">Posts</h2>
+      {posts.map((post) => (
+        <PostCard post={post} key={post.id} />
+      ))}
     </div>
   );
 }
@@ -43,6 +66,7 @@ export default function Home() {
             <Link href="https://github.com/ashtonmoomoo" label="Github" />
           </div>
         </div>
+        {posts.length > 0 && <Posts />}
       </div>
     </>
   );
