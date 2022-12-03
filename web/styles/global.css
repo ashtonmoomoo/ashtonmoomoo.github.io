@@ -2,7 +2,6 @@
 
 body {
   font-family: 'JetBrains Mono', mono;
-  font-size: x-large;
   background-color: #6f9d6d;
 }
 
@@ -13,6 +12,7 @@ body {
 }
 
 .wrapper {
+  font-size: x-large;
   grid-column: 2 / 2;
   grid-row: 2 / 2;
   margin: 0 auto;
@@ -34,6 +34,30 @@ body {
 .link {
   margin: 12px 6px;
   color: black;
+}
+
+.posts {
+  margin-top: 1em;
+  grid-column: 2 / 2;
+  grid-row: 3 / 3;
+}
+
+.posts-header {
+  margin: 12px 0;
+}
+
+.post-link {
+  color: black;
+}
+
+.post-title {
+  display: inline-block;
+  text-decoration: underline;
+  margin: 4px 0;
+}
+
+.post-summary {
+  margin: 4px 0;
 }
 
 .boxed-text {
