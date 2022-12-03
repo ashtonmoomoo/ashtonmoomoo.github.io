@@ -2,6 +2,9 @@ import { useRouter } from "next/router";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { cb } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+import "katex/dist/katex.min.css";
 
 import content from "../../content";
 
@@ -20,6 +23,8 @@ function PostPage() {
       <div className="post-page">
         <ReactMarkdown
           className="boxed-text"
+          remarkPlugins={[remarkMath]}
+          rehypePlugins={[rehypeKatex]}
           components={{
             code({ node, inline, className, children, style, ...props }) {
               const [, language] = /language-(\w+)/.exec(className || "") || [];
