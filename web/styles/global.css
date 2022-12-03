@@ -62,7 +62,7 @@ body {
 
 .post-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;;
+  grid-template-columns: 25% 50% 25%;
 }
 
 .post-page {
@@ -77,6 +77,7 @@ body {
 
 .boxed-text {
   width: fit-content;
+  max-width: 100%;
   padding: 6px 12px;
   background-color: white;
   border-radius: 6px;
