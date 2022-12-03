@@ -67,6 +67,8 @@ body {
 
 .post-page {
   grid-column: 2 / 2;
+  display: grid;
+  justify-content: center;
 }
 
 .inline-code {
