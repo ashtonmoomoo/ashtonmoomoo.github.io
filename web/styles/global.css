@@ -60,6 +60,15 @@ body {
   margin: 4px 0;
 }
 
+.post-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;;
+}
+
+.post-page {
+  grid-column: 2 / 2;
+}
+
 .boxed-text {
   width: fit-content;
   padding: 6px 12px;
