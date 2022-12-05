@@ -24,13 +24,12 @@ function ContentWrapper({
 
 interface PostPageState {
   markdown?: string;
-  loading?: boolean;
 }
 
 function PostPage() {
   const router = useRouter();
   const { id } = router.query;
-  const [state, setState] = useState<PostPageState>({ loading: true });
+  const [state, setState] = useState<PostPageState>();
 
   const meta = AVAILABLE_POSTS.find((p) => p.id === id);
 
@@ -38,7 +37,7 @@ function PostPage() {
     const fetchPost = async (url: string) => {
       const response = await fetch(url);
       const markdown = await response.text();
-      setState({ markdown, loading: false });
+      setState({ markdown });
     };
 
     if (meta?.url) {
@@ -46,12 +45,8 @@ function PostPage() {
     }
   }, [meta?.url]);
 
-  if (!meta) {
-    return (
-      <ContentWrapper>
-        <p className="boxed-text">Post not found :{"("}</p>
-      </ContentWrapper>
-    );
+  if (!meta || !state?.markdown) {
+    return null;
   }
 
   return (
@@ -89,7 +84,7 @@ function PostPage() {
             },
           }}
         >
-          {state?.markdown || "### Something went wrong :("}
+          {state.markdown}
         </ReactMarkdown>
       </ContentWrapper>
     </>
