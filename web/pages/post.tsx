@@ -1,5 +1,4 @@
 import { useRouter } from "next/router";
-import Head from "next/head";
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -9,6 +8,7 @@ import rehypeKatex from "rehype-katex";
 import "katex/dist/katex.min.css";
 
 import { AVAILABLE_POSTS } from "../meta/AVAILABLE_POSTS";
+import { PageTitleWrapper } from "./index";
 
 function ContentWrapper({
   children,
@@ -50,10 +50,7 @@ function PostPage() {
   }
 
   return (
-    <>
-      <Head>
-        <title>{meta.title}</title>
-      </Head>
+    <PageTitleWrapper title={meta.title}>
       <ContentWrapper>
         <ReactMarkdown
           className="boxed-text"
@@ -87,7 +84,7 @@ function PostPage() {
           {state.markdown}
         </ReactMarkdown>
       </ContentWrapper>
-    </>
+    </PageTitleWrapper>
   );
 }
 

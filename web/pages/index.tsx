@@ -2,6 +2,24 @@ import Head from "next/head";
 
 import { AVAILABLE_POSTS, PostMeta } from "../meta/AVAILABLE_POSTS";
 
+export function PageTitleWrapper({
+  title,
+  children,
+}: {
+  title: string;
+  children: JSX.Element | JSX.Element[];
+}) {
+  return (
+    <>
+      <Head>
+        <title>{title}</title>
+        <link rel="icon" href="static/favicon.ico" />
+      </Head>
+      {children}
+    </>
+  );
+}
+
 function Title({ title }: { title: string }) {
   return <h1 className="boxed-text shadow title">{title}</h1>;
 }
@@ -45,11 +63,7 @@ function Posts() {
 
 export default function Home() {
   return (
-    <>
-      <Head>
-        <title>Ashton Moore</title>
-        <link rel="icon" href="static/favicon.ico" />
-      </Head>
+    <PageTitleWrapper title="Ashton Moore">
       <div className="container">
         <div className="wrapper">
           <Title title="Ashton Moore" />
@@ -68,6 +82,6 @@ export default function Home() {
         </div>
         {AVAILABLE_POSTS.length > 0 && <Posts />}
       </div>
-    </>
+    </PageTitleWrapper>
   );
 }
