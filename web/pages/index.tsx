@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import posts, { Post } from "../content";
+import { AVAILABLE_POSTS, PostMeta } from "./posts";
 
 function Title({ title }: { title: string }) {
   return <h1 className="boxed-text shadow title">{title}</h1>;
@@ -18,7 +18,7 @@ function Description() {
   return <p className="boxed-text description">Software Engineer</p>;
 }
 
-function PostCard({ post }: { post: Post }) {
+function PostCard({ post }: { post: PostMeta }) {
   const { id, posted, summary, title } = post;
 
   return (
@@ -27,7 +27,7 @@ function PostCard({ post }: { post: Post }) {
         <h3 className="post-title">{title}</h3>
       </a>
       <p className="post-summary">{summary}</p>
-      <p>{posted.toLocaleDateString()}</p>
+      <p>{new Date(posted).toLocaleDateString()}</p>
     </div>
   );
 }
@@ -36,7 +36,7 @@ function Posts() {
   return (
     <div className="posts boxed-text">
       <h2 className="posts-header">Posts</h2>
-      {posts.map((post) => (
+      {AVAILABLE_POSTS.map((post) => (
         <PostCard post={post} key={post.id} />
       ))}
     </div>
@@ -66,7 +66,7 @@ export default function Home() {
             <Link href="https://github.com/ashtonmoomoo" label="Github" />
           </div>
         </div>
-        {posts.length > 0 && <Posts />}
+        {AVAILABLE_POSTS.length > 0 && <Posts />}
       </div>
     </>
   );
