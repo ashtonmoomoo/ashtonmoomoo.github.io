@@ -79,6 +79,7 @@ body {
 
 .boxed-text {
   width: fit-content;
+  margin: 12px auto;
   max-width: 100%;
   padding: 6px 12px;
   background-color: white;
