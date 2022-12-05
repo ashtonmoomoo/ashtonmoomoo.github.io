@@ -71,6 +71,8 @@ function PostPage() {
               return (
                 <SyntaxHighlighter
                   style={cb}
+                  wrapLines
+                  wrapLongLines
                   language={language || "language-js"}
                   PreTag="div"
                   {...props}

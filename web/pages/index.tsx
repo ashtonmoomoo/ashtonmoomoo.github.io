@@ -13,6 +13,7 @@ export function PageTitleWrapper({
     <>
       <Head>
         <title>{title}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="static/favicon.ico" />
       </Head>
       {children}
