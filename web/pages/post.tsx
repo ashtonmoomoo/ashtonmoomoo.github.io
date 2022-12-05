@@ -8,7 +8,7 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import "katex/dist/katex.min.css";
 
-import { AVAILABLE_POSTS } from "./AVAILABLE_POSTS";
+import { AVAILABLE_POSTS } from "../meta/AVAILABLE_POSTS";
 
 function ContentWrapper({
   children,

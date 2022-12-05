@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import { AVAILABLE_POSTS, PostMeta } from "./AVAILABLE_POSTS";
+import { AVAILABLE_POSTS, PostMeta } from "../meta/AVAILABLE_POSTS";
 
 function Title({ title }: { title: string }) {
   return <h1 className="boxed-text shadow title">{title}</h1>;
