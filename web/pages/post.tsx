@@ -1,5 +1,4 @@
 import { useRouter } from "next/router";
-import Head from "next/head";
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -9,6 +8,7 @@ import rehypeKatex from "rehype-katex";
 import "katex/dist/katex.min.css";
 
 import { AVAILABLE_POSTS } from "../meta/AVAILABLE_POSTS";
+import { PageTitleWrapper } from "./index";
 
 function ContentWrapper({
   children,
@@ -24,13 +24,12 @@ function ContentWrapper({
 
 interface PostPageState {
   markdown?: string;
-  loading?: boolean;
 }
 
 function PostPage() {
   const router = useRouter();
   const { id } = router.query;
-  const [state, setState] = useState<PostPageState>({ loading: true });
+  const [state, setState] = useState<PostPageState>();
 
   const meta = AVAILABLE_POSTS.find((p) => p.id === id);
 
@@ -38,7 +37,7 @@ function PostPage() {
     const fetchPost = async (url: string) => {
       const response = await fetch(url);
       const markdown = await response.text();
-      setState({ markdown, loading: false });
+      setState({ markdown });
     };
 
     if (meta?.url) {
@@ -46,19 +45,12 @@ function PostPage() {
     }
   }, [meta?.url]);
 
-  if (!meta) {
-    return (
-      <ContentWrapper>
-        <p className="boxed-text">Post not found :{"("}</p>
-      </ContentWrapper>
-    );
+  if (!meta || !state?.markdown) {
+    return null;
   }
 
   return (
-    <>
-      <Head>
-        <title>{meta.title}</title>
-      </Head>
+    <PageTitleWrapper title={meta.title}>
       <ContentWrapper>
         <ReactMarkdown
           className="boxed-text"
@@ -89,10 +81,10 @@ function PostPage() {
             },
           }}
         >
-          {state?.markdown || "### Something went wrong :("}
+          {state.markdown}
         </ReactMarkdown>
       </ContentWrapper>
-    </>
+    </PageTitleWrapper>
   );
 }
 
