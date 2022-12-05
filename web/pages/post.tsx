@@ -8,7 +8,7 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import "katex/dist/katex.min.css";
 
-import { AVAILABLE_POSTS } from ".";
+import { AVAILABLE_POSTS } from "./AVAILABLE_POSTS";
 
 function ContentWrapper({
   children,
@@ -29,7 +29,7 @@ interface PostPageState {
 
 function PostPage() {
   const router = useRouter();
-  const { "post-id": id } = router.query;
+  const { id } = router.query;
   const [state, setState] = useState<PostPageState>({ loading: true });
 
   const meta = AVAILABLE_POSTS.find((p) => p.id === id);

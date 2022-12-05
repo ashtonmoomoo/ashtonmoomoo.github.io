@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import { AVAILABLE_POSTS, PostMeta } from "./posts";
+import { AVAILABLE_POSTS, PostMeta } from "./AVAILABLE_POSTS";
 
 function Title({ title }: { title: string }) {
   return <h1 className="boxed-text shadow title">{title}</h1>;
@@ -23,7 +23,7 @@ function PostCard({ post }: { post: PostMeta }) {
 
   return (
     <div className="post">
-      <a href={`/posts/${id}`} className="post-link">
+      <a href={`/post?id=${id}`} className="post-link">
         <h3 className="post-title">{title}</h3>
       </a>
       <p className="post-summary">{summary}</p>
