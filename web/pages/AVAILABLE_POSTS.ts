@@ -7,7 +7,7 @@ export interface PostMeta {
 }
 
 // Need to sort out a better way to do this
-const BRANCH = "posts-round-3";
+const BRANCH = "main";
 const BASE_URL = `https://raw.githubusercontent.com/ashtonmoomoo/ashtonmoomoo.github.io/${BRANCH}/_posts/`;
 export const AVAILABLE_POSTS: PostMeta[] = [
   {
