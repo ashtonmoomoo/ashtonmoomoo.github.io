@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 
 import { AVAILABLE_POSTS, PostMeta } from "../meta/AVAILABLE_POSTS";
 
@@ -25,11 +26,11 @@ function Title({ title }: { title: string }) {
   return <h1 className="boxed-text shadow title">{title}</h1>;
 }
 
-function Link({ href, label }: { href: string; label: string }) {
+function BoxedLink({ href, label }: { href: string; label: string }) {
   return (
-    <a href={href} target="_blank" rel="noreferrer" className="link">
+    <Link href={href} className="link" target={"_blank"}>
       <span className=" boxed-text shadow-animation">{label}</span>
-    </a>
+    </Link>
   );
 }
 
@@ -42,9 +43,9 @@ function PostCard({ post }: { post: PostMeta }) {
 
   return (
     <div className="post">
-      <a href={`/post?id=${id}`} className="post-link">
+      <Link href={`/post?id=${id}`} className="post-link">
         <h3 className="post-title">{title}</h3>
-      </a>
+      </Link>
       <p className="post-summary">{summary}</p>
       <p>{new Date(posted).toLocaleDateString()}</p>
     </div>
@@ -70,15 +71,15 @@ export default function Home() {
           <Title title="Ashton Moore" />
           <Description />
           <div className="links">
-            <Link
+            <BoxedLink
               href="https://ashtonmooredevartefacts.s3.ap-southeast-2.amazonaws.com/ashton_moore_cv.pdf"
               label="CV"
             />
-            <Link
+            <BoxedLink
               href="https://www.linkedin.com/in/ashtoncmoore/"
               label="LinkedIn"
             />
-            <Link href="https://github.com/ashtonmoomoo" label="Github" />
+            <BoxedLink href="https://github.com/ashtonmoomoo" label="Github" />
           </div>
         </div>
         {AVAILABLE_POSTS.length > 0 && <Posts />}
