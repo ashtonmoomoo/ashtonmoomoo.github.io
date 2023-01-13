@@ -3,25 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import { AVAILABLE_POSTS, PostMeta } from "../meta/AVAILABLE_POSTS";
-
-export function PageTitleWrapper({
-  title,
-  children,
-}: {
-  title: string;
-  children: JSX.Element | JSX.Element[];
-}) {
-  return (
-    <>
-      <Head>
-        <title>{title}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href="static/favicon.ico" />
-      </Head>
-      {children}
-    </>
-  );
-}
+import { useTitle } from "../utils/use-title";
 
 function Title({ title }: { title: string }) {
   return <h1 className="boxed-text shadow title">{title}</h1>;
@@ -71,26 +53,26 @@ function Posts() {
 }
 
 export default function Home() {
+  useTitle("Ashton Moore");
+
   return (
-    <PageTitleWrapper title="Ashton Moore">
-      <div className="container">
-        <div className="wrapper">
-          <Title title="Ashton Moore" />
-          <Description />
-          <div className="links">
-            <BoxedLink
-              href="https://ashtonmooredevartefacts.s3.ap-southeast-2.amazonaws.com/ashton_moore_cv.pdf"
-              label="CV"
-            />
-            <BoxedLink
-              href="https://www.linkedin.com/in/ashtoncmoore/"
-              label="LinkedIn"
-            />
-            <BoxedLink href="https://github.com/ashtonmoomoo" label="Github" />
-          </div>
+    <div className="container">
+      <div className="wrapper">
+        <Title title="Ashton Moore" />
+        <Description />
+        <div className="links">
+          <BoxedLink
+            href="https://ashtonmooredevartefacts.s3.ap-southeast-2.amazonaws.com/ashton_moore_cv.pdf"
+            label="CV"
+          />
+          <BoxedLink
+            href="https://www.linkedin.com/in/ashtoncmoore/"
+            label="LinkedIn"
+          />
+          <BoxedLink href="https://github.com/ashtonmoomoo" label="Github" />
         </div>
-        {AVAILABLE_POSTS.length > 0 && <Posts />}
       </div>
-    </PageTitleWrapper>
+      {AVAILABLE_POSTS.length > 0 && <Posts />}
+    </div>
   );
 }
