@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 import { AVAILABLE_POSTS, PostMeta } from "../meta/AVAILABLE_POSTS";
 
@@ -29,7 +30,7 @@ function Title({ title }: { title: string }) {
 function BoxedLink({ href, label }: { href: string; label: string }) {
   return (
     <Link href={href} className="link" target={"_blank"}>
-      <span className=" boxed-text shadow-animation">{label}</span>
+      <span className="boxed-text shadow-animation">{label}</span>
     </Link>
   );
 }
@@ -40,6 +41,12 @@ function Description() {
 
 function PostCard({ post }: { post: PostMeta }) {
   const { id, posted, summary, title } = post;
+  const [dateString, setDateString] = useState<string>();
+
+  // Avoid hydration errors
+  useEffect(() => {
+    setDateString(new Date(posted).toLocaleDateString());
+  }, [posted]);
 
   return (
     <div className="post">
@@ -47,7 +54,7 @@ function PostCard({ post }: { post: PostMeta }) {
         <h3 className="post-title">{title}</h3>
       </Link>
       <p className="post-summary">{summary}</p>
-      <p>{new Date(posted).toLocaleDateString()}</p>
+      {dateString && <p>{dateString}</p>}
     </div>
   );
 }
