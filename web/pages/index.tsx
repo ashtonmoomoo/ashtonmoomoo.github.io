@@ -68,7 +68,7 @@ export default function Home() {
             href="https://www.linkedin.com/in/ashtoncmoore/"
             label="LinkedIn"
           />
-          <BoxedLink href="https://github.com/ashtonmoomoo" label="Github" />
+          <BoxedLink href="https://github.com/ashtonmoomoo" label="GitHub" />
         </div>
       </div>
       {AVAILABLE_POSTS.length > 0 && <Posts />}
