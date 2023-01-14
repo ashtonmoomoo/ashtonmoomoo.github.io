@@ -16,6 +16,16 @@ interface PostPageState {
   markdown?: string;
 }
 
+function NotFound() {
+  return (
+    <Layout>
+      <div className={styles.page}>
+        <div className="boxed-text">404! Post not found :(</div>
+      </div>
+    </Layout>
+  );
+}
+
 function PostPage() {
   const router = useRouter();
   const { id } = router.query;
@@ -23,7 +33,7 @@ function PostPage() {
 
   const meta = AVAILABLE_POSTS.find((p) => p.id === id);
 
-  useTitle(meta?.title || (id as string));
+  useTitle(meta?.title || "404 :(");
 
   useEffect(() => {
     const fetchPost = async (url: string) => {
@@ -37,8 +47,8 @@ function PostPage() {
     }
   }, [meta?.url]);
 
-  if (!meta || !state?.markdown) {
-    return null;
+  if (!meta && !state?.markdown) {
+    return <NotFound />;
   }
 
   return (
@@ -75,7 +85,7 @@ function PostPage() {
             },
           }}
         >
-          {state.markdown}
+          {state?.markdown || "Loading..."}
         </ReactMarkdown>
       </div>
     </Layout>
