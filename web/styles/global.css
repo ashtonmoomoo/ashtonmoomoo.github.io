@@ -6,15 +6,13 @@ body {
 }
 
 .container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 3fr;
+  margin: 32px 32px;
+  display: flex;
+  flex-direction: column;
 }
 
 .wrapper {
   font-size: x-large;
-  grid-column: 2 / 2;
-  grid-row: 2 / 2;
   margin: 0 auto;
 }
 

@@ -1,7 +1,5 @@
 .container {
   margin-top: 1em;
-  grid-column: 2 / 2;
-  grid-row: 3 / 3;
 }
 
 .header {
