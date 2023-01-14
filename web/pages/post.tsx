@@ -10,18 +10,7 @@ import "katex/dist/katex.min.css";
 
 import { AVAILABLE_POSTS } from "../meta/AVAILABLE_POSTS";
 import { useTitle } from "../utils/use-title";
-
-function ContentWrapper({
-  children,
-}: {
-  children: JSX.Element[] | JSX.Element;
-}) {
-  return (
-    <div className={styles.container}>
-      <div className={styles.page}>{children}</div>
-    </div>
-  );
-}
+import { Layout } from "../components/layout";
 
 interface PostPageState {
   markdown?: string;
@@ -53,41 +42,43 @@ function PostPage() {
   }
 
   return (
-    <ContentWrapper>
-      <ReactMarkdown
-        className="boxed-text"
-        remarkPlugins={[remarkMath]}
-        rehypePlugins={[rehypeKatex]}
-        components={{
-          code({ node, inline, className, children, style, ...props }) {
-            const [, language] = /language-(\w+)/.exec(className || "") || [];
+    <Layout>
+      <div className={styles.page}>
+        <ReactMarkdown
+          className="boxed-text"
+          remarkPlugins={[remarkMath]}
+          rehypePlugins={[rehypeKatex]}
+          components={{
+            code({ node, inline, className, children, style, ...props }) {
+              const [, language] = /language-(\w+)/.exec(className || "") || [];
 
-            if (inline) {
+              if (inline) {
+                return (
+                  <span className={styles["inline-code"]}>
+                    <code>{children}</code>
+                  </span>
+                );
+              }
+
               return (
-                <span className={styles["inline-code"]}>
-                  <code>{children}</code>
-                </span>
+                <SyntaxHighlighter
+                  style={cb}
+                  wrapLines
+                  wrapLongLines
+                  language={language || "language-js"}
+                  PreTag="div"
+                  {...props}
+                >
+                  {String(children).replace(/\n$/, "")}
+                </SyntaxHighlighter>
               );
-            }
-
-            return (
-              <SyntaxHighlighter
-                style={cb}
-                wrapLines
-                wrapLongLines
-                language={language || "language-js"}
-                PreTag="div"
-                {...props}
-              >
-                {String(children).replace(/\n$/, "")}
-              </SyntaxHighlighter>
-            );
-          },
-        }}
-      >
-        {state.markdown}
-      </ReactMarkdown>
-    </ContentWrapper>
+            },
+          }}
+        >
+          {state.markdown}
+        </ReactMarkdown>
+      </div>
+    </Layout>
   );
 }
 

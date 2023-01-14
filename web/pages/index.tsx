@@ -3,6 +3,7 @@ import styles from "../styles/Home.module.css";
 
 import { useTitle } from "../utils/use-title";
 import { Posts } from "../components/posts";
+import { Layout } from "../components/layout";
 
 function Title({ title }: { title: string }) {
   return (
@@ -46,13 +47,13 @@ export default function Home() {
   useTitle("Ashton Moore");
 
   return (
-    <div className="container">
+    <Layout>
       <div className="wrapper">
         <Title title="Ashton Moore" />
         <Description />
         <Links />
       </div>
       <Posts />
-    </div>
+    </Layout>
   );
 }
