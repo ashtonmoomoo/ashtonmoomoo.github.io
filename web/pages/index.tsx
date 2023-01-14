@@ -1,10 +1,8 @@
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
 
-import { useEffect, useState } from "react";
-
-import { AVAILABLE_POSTS, PostMeta } from "../meta/AVAILABLE_POSTS";
 import { useTitle } from "../utils/use-title";
+import { Posts } from "../components/posts";
 
 function Title({ title }: { title: string }) {
   return (
@@ -28,37 +26,6 @@ function Description() {
   );
 }
 
-function PostCard({ post }: { post: PostMeta }) {
-  const { id, posted, summary, title } = post;
-  const [dateString, setDateString] = useState<string>();
-
-  // Avoid hydration errors
-  useEffect(() => {
-    setDateString(new Date(posted).toLocaleDateString());
-  }, [posted]);
-
-  return (
-    <div className="post">
-      <Link href={`/post?id=${id}`} className="post-link">
-        <h3 className="post-title">{title}</h3>
-      </Link>
-      <p className="post-summary">{summary}</p>
-      {dateString && <p>{dateString}</p>}
-    </div>
-  );
-}
-
-function Posts() {
-  return (
-    <div className="posts boxed-text">
-      <h2 className="posts-header">Posts</h2>
-      {AVAILABLE_POSTS.map((post) => (
-        <PostCard post={post} key={post.id} />
-      ))}
-    </div>
-  );
-}
-
 export default function Home() {
   useTitle("Ashton Moore");
 
@@ -79,7 +46,7 @@ export default function Home() {
           <BoxedLink href="https://github.com/ashtonmoomoo" label="GitHub" />
         </div>
       </div>
-      {AVAILABLE_POSTS.length > 0 && <Posts />}
+      <Posts />
     </div>
   );
 }
