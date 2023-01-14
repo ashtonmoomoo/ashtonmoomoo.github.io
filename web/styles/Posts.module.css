@@ -1,0 +1,23 @@
+.container {
+  margin-top: 1em;
+  grid-column: 2 / 2;
+  grid-row: 3 / 3;
+}
+
+.header {
+  margin: 12px 0;
+}
+
+.link {
+  color: black;
+}
+
+.title {
+  display: inline-block;
+  text-decoration: underline;
+  margin: 4px 0;
+}
+
+.summary {
+  margin: 4px 0;
+}
