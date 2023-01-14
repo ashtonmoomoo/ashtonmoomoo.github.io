@@ -12,8 +12,7 @@ body {
 }
 
 .wrapper {
-  font-size: x-large;
-  margin: 0 auto;
+  font-size: clamp(100%, 4vw, 150%);
 }
 
 .boxed-text {
