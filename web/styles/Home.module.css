@@ -1,18 +1,24 @@
 .title {
   margin: 0 auto;
+  overflow: hidden;
+  text-align: center;
 }
 
 .description {
+  overflow: hidden;
+  text-align: center;
   font-style: italic;
   margin: 12px auto;
 }
 
 .links {
-  margin: 16px;
+  display: flex;
+  justify-content: center;
+  margin: 0;
 }
 
 .link {
-  margin: 12px 6px;
+  margin: 6px;
   color: black;
 }
 
