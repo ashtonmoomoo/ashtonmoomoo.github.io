@@ -26,6 +26,22 @@ function Description() {
   );
 }
 
+function Links() {
+  return (
+    <div className={styles.links}>
+      <BoxedLink
+        href="https://ashtonmooredevartefacts.s3.ap-southeast-2.amazonaws.com/ashton_moore_cv.pdf"
+        label="CV"
+      />
+      <BoxedLink
+        href="https://www.linkedin.com/in/ashtoncmoore/"
+        label="LinkedIn"
+      />
+      <BoxedLink href="https://github.com/ashtonmoomoo" label="GitHub" />
+    </div>
+  );
+}
+
 export default function Home() {
   useTitle("Ashton Moore");
 
@@ -34,17 +50,7 @@ export default function Home() {
       <div className="wrapper">
         <Title title="Ashton Moore" />
         <Description />
-        <div className={styles.links}>
-          <BoxedLink
-            href="https://ashtonmooredevartefacts.s3.ap-southeast-2.amazonaws.com/ashton_moore_cv.pdf"
-            label="CV"
-          />
-          <BoxedLink
-            href="https://www.linkedin.com/in/ashtoncmoore/"
-            label="LinkedIn"
-          />
-          <BoxedLink href="https://github.com/ashtonmoomoo" label="GitHub" />
-        </div>
+        <Links />
       </div>
       <Posts />
     </div>
