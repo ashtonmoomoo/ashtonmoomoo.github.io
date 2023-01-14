@@ -1,23 +1,31 @@
 import Link from "next/link";
+import styles from "../styles/Home.module.css";
+
 import { useEffect, useState } from "react";
 
 import { AVAILABLE_POSTS, PostMeta } from "../meta/AVAILABLE_POSTS";
 import { useTitle } from "../utils/use-title";
 
 function Title({ title }: { title: string }) {
-  return <h1 className="boxed-text shadow title">{title}</h1>;
+  return (
+    <h1 className={`boxed-text ${styles.shadow} ${styles.title}`}>{title}</h1>
+  );
 }
 
 function BoxedLink({ href, label }: { href: string; label: string }) {
   return (
-    <Link href={href} className="link" target={"_blank"}>
-      <span className="boxed-text shadow-animation">{label}</span>
+    <Link href={href} className={styles.link} target={"_blank"}>
+      <span className={`boxed-text ${styles["shadow-animation"]}`}>
+        {label}
+      </span>
     </Link>
   );
 }
 
 function Description() {
-  return <p className="boxed-text description">Software Engineer</p>;
+  return (
+    <p className={`boxed-text ${styles.description}`}>Software Engineer</p>
+  );
 }
 
 function PostCard({ post }: { post: PostMeta }) {
@@ -59,7 +67,7 @@ export default function Home() {
       <div className="wrapper">
         <Title title="Ashton Moore" />
         <Description />
-        <div className="links">
+        <div className={styles.links}>
           <BoxedLink
             href="https://ashtonmooredevartefacts.s3.ap-southeast-2.amazonaws.com/ashton_moore_cv.pdf"
             label="CV"

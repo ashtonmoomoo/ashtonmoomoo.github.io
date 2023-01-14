@@ -1,0 +1,30 @@
+.title {
+  margin: 0 auto;
+}
+
+.description {
+  font-style: italic;
+  margin: 12px auto;
+}
+
+.links {
+  margin: 16px;
+}
+
+.link {
+  margin: 12px 6px;
+  color: black;
+}
+
+.shadow {
+  box-shadow: -4px 4px black;
+}
+
+.shadow-animation {
+  transition: box-shadow 0.3s;
+}
+
+.shadow-animation:hover {
+  box-shadow: -4px 4px black;
+  transition: box-shadow 0.3s;
+}
