@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import styles from "../styles/Post.module.css";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { cb } from "react-syntax-highlighter/dist/cjs/styles/prism";
@@ -16,8 +17,8 @@ function ContentWrapper({
   children: JSX.Element[] | JSX.Element;
 }) {
   return (
-    <div className="post-container">
-      <div className="post-page">{children}</div>
+    <div className={styles.container}>
+      <div className={styles.page}>{children}</div>
     </div>
   );
 }
@@ -63,7 +64,7 @@ function PostPage() {
 
             if (inline) {
               return (
-                <span className="inline-code">
+                <span className={styles["inline-code"]}>
                   <code>{children}</code>
                 </span>
               );

@@ -18,23 +18,6 @@ body {
   margin: 0 auto;
 }
 
-.post-container {
-  display: grid;
-  grid-template-columns: 25% 50% 25%;
-}
-
-.post-page {
-  grid-column: 2 / 2;
-  display: grid;
-  justify-content: center;
-}
-
-.inline-code {
-  background-color: #e9e9e9;
-  padding: 0 4px;
-  border-radius: 4px;
-}
-
 .boxed-text {
   width: fit-content;
   margin: 12px auto;
