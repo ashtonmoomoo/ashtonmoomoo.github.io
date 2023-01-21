@@ -19,18 +19,20 @@
 
 .link {
   margin: 6px;
-  color: black;
+  color: var(--boxed-text-color);
 }
 
-.shadow {
-  box-shadow: -4px 4px black;
-}
-
-.shadow-animation {
-  transition: box-shadow 0.3s;
-}
-
-.shadow-animation:hover {
-  box-shadow: -4px 4px black;
-  transition: box-shadow 0.3s;
+@media (prefers-color-scheme: light) {
+  .shadow {
+    box-shadow: -4px 4px black;
+  }
+  
+  .shadow-animation {
+    transition: box-shadow 0.3s;
+  }
+  
+  .shadow-animation:hover {
+    box-shadow: -4px 4px black;
+    transition: box-shadow 0.3s;
+  }
 }

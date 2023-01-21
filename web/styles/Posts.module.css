@@ -7,7 +7,7 @@
 }
 
 .link {
-  color: black;
+  color: var(--boxed-text-color);
 }
 
 .title {
