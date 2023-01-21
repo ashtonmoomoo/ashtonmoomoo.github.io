@@ -22,3 +22,7 @@
 .link {
   color: var(--boxed-text-color);
 }
+
+.back-link {
+  color: var(--boxed-text-color);
+}

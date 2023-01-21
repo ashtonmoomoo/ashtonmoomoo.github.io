@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import styles from "../styles/Post.module.css";
 import ReactMarkdown from "react-markdown";
+import Link from "next/link";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { cb } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import remarkMath from "remark-math";
@@ -23,6 +24,14 @@ function NotFound() {
         <div className="boxed-text">404! Post not found :(</div>
       </div>
     </Layout>
+  );
+}
+
+function Back() {
+  return (
+    <Link className={styles["back-link"]} href="/">
+      Back
+    </Link>
   );
 }
 
@@ -54,46 +63,50 @@ function PostPage() {
   return (
     <Layout>
       <div className={styles.page}>
-        <ReactMarkdown
-          className="boxed-text"
-          remarkPlugins={[remarkMath]}
-          rehypePlugins={[rehypeKatex]}
-          components={{
-            a({ children, ...props }) {
-              return (
-                <a className={styles.link} {...props}>
-                  {children}
-                </a>
-              );
-            },
-            code({ inline, className, children, style, ...props }) {
-              const [, language] = /language-(\w+)/.exec(className || "") || [];
-
-              if (inline) {
+        <div className="boxed-text">
+          {state?.markdown && <Back />}
+          <ReactMarkdown
+            remarkPlugins={[remarkMath]}
+            rehypePlugins={[rehypeKatex]}
+            components={{
+              a({ children, ...props }) {
                 return (
-                  <span className={styles["inline-code"]}>
-                    <code>{children}</code>
-                  </span>
+                  <a className={styles.link} {...props}>
+                    {children}
+                  </a>
                 );
-              }
+              },
+              code({ inline, className, children, style, ...props }) {
+                const [, language] =
+                  /language-(\w+)/.exec(className || "") || [];
 
-              return (
-                <SyntaxHighlighter
-                  style={cb}
-                  wrapLines
-                  wrapLongLines
-                  language={language || "language-js"}
-                  PreTag="div"
-                  {...props}
-                >
-                  {String(children).replace(/\n$/, "")}
-                </SyntaxHighlighter>
-              );
-            },
-          }}
-        >
-          {state?.markdown || "Loading..."}
-        </ReactMarkdown>
+                if (inline) {
+                  return (
+                    <span className={styles["inline-code"]}>
+                      <code>{children}</code>
+                    </span>
+                  );
+                }
+
+                return (
+                  <SyntaxHighlighter
+                    style={cb}
+                    wrapLines
+                    wrapLongLines
+                    language={language || "language-js"}
+                    PreTag="div"
+                    {...props}
+                  >
+                    {String(children).replace(/\n$/, "")}
+                  </SyntaxHighlighter>
+                );
+              },
+            }}
+          >
+            {state?.markdown || "Loading..."}
+          </ReactMarkdown>
+          {state?.markdown && <Back />}
+        </div>
       </div>
     </Layout>
   );
