@@ -59,7 +59,14 @@ function PostPage() {
           remarkPlugins={[remarkMath]}
           rehypePlugins={[rehypeKatex]}
           components={{
-            code({ node, inline, className, children, style, ...props }) {
+            a({ children, ...props }) {
+              return (
+                <a className={styles.link} {...props}>
+                  {children}
+                </a>
+              );
+            },
+            code({ inline, className, children, style, ...props }) {
               const [, language] = /language-(\w+)/.exec(className || "") || [];
 
               if (inline) {
