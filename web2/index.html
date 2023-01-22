@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <link rel="icon" href="static/favicon.ico" />
+  <title>Ashton Moore</title>
+
+  <script defer src="PostCard.js"></script>
+  <script>
+    const BASE_URL = "https://raw.githubusercontent.com/ashtonmoomoo/ashtonmoomoo.github.io/main/_posts/";
+    const POSTS = [{
+      id: "use-ref-reducer",
+      title: "Fun With React Hooks",
+      summary: "Creating a custom React hook that wraps useRef",
+      posted: "2023-01-14",
+      url: `${BASE_URL}use-ref-reducer.md`,
+    },
+    {
+      id: "dangers-of-eta-conversion",
+      title: "The Dangers of Eta Conversion in JS & TS",
+      summary: "Was that a faithful refactor you just did?",
+      posted: "2022-12-03",
+      url: `${BASE_URL}dangers-of-eta-conversion.md`,
+    }];
+
+    async function getPosts() {
+      const postContainer = document.getElementById("posts-container");
+
+      let postsHtml = "";
+      POSTS.forEach(p => {
+        postsHtml += `
+          <post-card>
+            <a slot="link-text" href="${p.url}">
+              ${p.title}
+            </a>
+            <div slot="posted">${p.posted}</div>
+            <div slot="summary">${p.summary}</div>
+          </post-card>
+        `
+      });
+
+      postContainer.innerHTML = postsHtml;
+    }
+
+    window.onload = getPosts;
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="info">
+      <h1 class="boxed-text">Ashton Moore</h1>
+      <p class="boxed-text">Software Engineer</p>
+      <div class="links">
+        <a href="/cv">CV</a>
+        <a href="https://www.linkedin.com/in/ashtoncmoore">LinkedIn</a>
+        <a href="https://www.github.com/ashtonmoomoo">GitHub</a>
+      </div>
+    </div>
+    <div class="posts">
+      <h2>Posts</h2>
+      <div id="posts-container" class="posts-container"></div>
+    </div>
+  </div>
+</body>
+
+</html>
