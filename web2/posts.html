@@ -31,7 +31,7 @@
         return;
       }
 
-      const ghResponse = await fetch(`${BASE_URL}${postId}`);
+      const ghResponse = await fetch(`${BASE_URL}${postId}.md`);
       if (!ghResponse.ok) {
         if (ghResponse.status === 404) {
           setNotFound();
