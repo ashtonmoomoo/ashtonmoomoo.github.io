@@ -5,6 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <link rel="icon" href="public/favicon.ico" />
+  <link rel="stylesheet" href="styles/index.css">
   <title>Ashton Moore</title>
 
   <script defer src="PostCard.js"></script>
@@ -25,22 +26,24 @@
     }];
 
     async function getPosts() {
-      const postContainer = document.getElementById("posts-container");
+      const posts = document.getElementById("posts");
 
       let postsHtml = "";
       POSTS.forEach(p => {
         postsHtml += `
           <post-card>
-            <a slot="link-text" href="${p.url}">
-              ${p.title}
+            <a class="post-link" slot="link-text" href="${p.url}">
+              <h3 class="post-title">
+                ${p.title}
+              </h3>
             </a>
-            <div slot="posted">${p.posted}</div>
-            <div slot="summary">${p.summary}</div>
+            <p slot="posted">${new Date(p.posted).toLocaleDateString()}</p>
+            <p class="post-summary" slot="summary">${p.summary}</p>
           </post-card>
         `
       });
 
-      postContainer.innerHTML = postsHtml;
+      posts.innerHTML = postsHtml;
     }
 
     window.onload = getPosts;
@@ -53,14 +56,14 @@
       <h1 class="boxed-text">Ashton Moore</h1>
       <p class="boxed-text">Software Engineer</p>
       <div class="links">
-        <a href="/cv">CV</a>
-        <a href="https://www.linkedin.com/in/ashtoncmoore">LinkedIn</a>
-        <a href="https://www.github.com/ashtonmoomoo">GitHub</a>
+        <a class="boxed-text shadow-animation" href="/cv">CV</a>
+        <a class="boxed-text shadow-animation" href="https://www.linkedin.com/in/ashtoncmoore">LinkedIn</a>
+        <a class="boxed-text shadow-animation" href="https://www.github.com/ashtonmoomoo">GitHub</a>
       </div>
     </div>
-    <div class="posts">
+    <div class="posts-container boxed-text">
       <h2>Posts</h2>
-      <div id="posts-container" class="posts-container"></div>
+      <div id="posts"></div>
     </div>
   </div>
 </body>

@@ -1,15 +1,9 @@
 const template = document.createElement("template");
 template.innerHTML = `
-<div data-postcard class="post">
-  <h3>
-    <slot name="link-text"></slot>
-  </h3>
-  <p>
-    <slot name="posted"></slot>
-  </p>
-  <p>
-    <slot name="summary"></slot>
-  </p>
+<div data-postcard>
+  <slot name="link-text"></slot>
+  <slot name="summary"></slot>
+  <slot name="posted"></slot>
 </div>
 `;
 
