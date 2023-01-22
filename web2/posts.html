@@ -5,6 +5,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <link rel="icon" href="public/favicon.ico" />
+  <link rel="stylesheet" href="styles/global.css">
+  <link rel="stylesheet" href="styles/post.css" />
   <title>Loading...</title>
 
   <script defer src="drawdown.js"></script>
@@ -46,13 +48,14 @@
       }
 
       container.innerHTML = markdown(markdownContent);
+      document.title = document.getElementsByTagName("h1")[0].textContent;
     }
 
     window.onload = getPost;
   </script>
 
 <body>
-  <div id="container" class="container"></div>
+  <div id="container" class="container boxed-text"></div>
 </body>
 </head>
 
