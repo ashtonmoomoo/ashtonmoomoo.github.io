@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=JetBrains+Mono:regular,bold,italic&subset=latin,latin-ext');
+
+:root {
+  --bg:  #6f9d6d;
+  --boxed-text-bg: #fff;
+  --boxed-text-color: #000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #303030;
+    --boxed-text-bg: #505050;
+    --boxed-text-color: #fff;
+  }
+}
+
+body {
+  font-family: 'JetBrains Mono', mono;
+  background-color: var(--bg);
+}
+
+.container {
+  margin: 32px 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.boxed-text {
+  color: var(--boxed-text-color);
+  width: fit-content;
+  margin: 12px auto;
+  max-width: 100%;
+  padding: 6px 12px;
+  background-color: var(--boxed-text-bg);
+  border-radius: 6px;
+}
