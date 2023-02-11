@@ -12,12 +12,6 @@ body {
   background-color: var(--bg);
 }
 
-.container {
-  margin: 32px 32px;
-  display: flex;
-  flex-direction: column;
-}
-
 .centered {
   margin: 12px auto;
 }
