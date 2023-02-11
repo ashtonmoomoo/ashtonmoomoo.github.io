@@ -18,10 +18,13 @@ body {
   flex-direction: column;
 }
 
+.centered {
+  margin: 12px auto;
+}
+
 .boxed-text {
   color: var(--boxed-text-color);
   width: fit-content;
-  margin: 12px auto;
   max-width: 100%;
   padding: 6px 12px;
   background-color: var(--boxed-text-bg);
