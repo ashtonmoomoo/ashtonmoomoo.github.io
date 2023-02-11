@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="styles/index.css">
   <title>Ashton Moore</title>
 
-  <script defer src="PostCard.js"></script>
   <script>
     const POSTS = [{
       id: "use-ref-reducer",
@@ -34,13 +33,11 @@
         postsHtml += `
         <a class="post-link" href="${p.url}">
           <div class="boxed-text centered shadow-animation">
-            <post-card>
-              <h3 class="post-title" slot="link-text">
-                ${p.title}
-              </h3>
-              <p slot="posted">${new Date(p.posted).toLocaleDateString()}</p>
-              <p class="post-summary" slot="summary">${p.summary}</p>
-            </post-card>
+            <h3 class="post-title" slot="link-text">
+              ${p.title}
+            </h3>
+            <p slot="posted">${new Date(p.posted).toLocaleDateString()}</p>
+            <p class="post-summary" slot="summary">${p.summary}</p>
           </div>
         </a>
         `
