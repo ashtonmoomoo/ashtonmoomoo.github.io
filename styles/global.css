@@ -12,19 +12,44 @@ body {
   background-color: var(--bg);
 }
 
-.container {
-  margin: 32px 32px;
-  display: flex;
-  flex-direction: column;
+.centered {
+  margin: 12px auto;
 }
 
 .boxed-text {
   color: var(--boxed-text-color);
   width: fit-content;
-  margin: 12px auto;
   max-width: 100%;
   padding: 6px 12px;
   background-color: var(--boxed-text-bg);
   border: solid black 1px;
   border-radius: 6px;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+.links > a {
+  margin: 6px;
+  color: var(--boxed-text-color);
+}
+
+.shadow {
+  box-shadow: -4px 4px black;
+}
+
+.shadow-animation {
+  transition: box-shadow 0.3s;
+}
+
+.shadow-animation:hover {
+  box-shadow: -4px 4px black;
+  transition: box-shadow 0.3s;
+}
+
+.info > p {
+  font-style: italic;
 }

@@ -33,7 +33,7 @@
       POSTS.forEach(p => {
         postsHtml += `
         <a class="post-link" href="${p.url}">
-          <div class="boxed-text shadow-animation">
+          <div class="boxed-text centered shadow-animation">
             <post-card>
               <h3 class="post-title" slot="link-text">
                 ${p.title}
@@ -54,21 +54,21 @@
 </head>
 
 <body>
-  <div class="container">
-    <div class="info">
-      <h1 class="boxed-text">Ashton Moore</h1>
-      <p class="boxed-text">Software Engineer</p>
-      <div class="links">
-        <a class="boxed-text shadow-animation" href="/cv">CV</a>
-        <a class="boxed-text shadow-animation" href="https://www.linkedin.com/in/ashtoncmoore">LinkedIn</a>
-        <a class="boxed-text shadow-animation" href="https://www.github.com/ashtonmoomoo">GitHub</a>
-      </div>
+  <div class="info">
+    <h1 class="boxed-text centered">Ashton Moore</h1>
+    <p class="boxed-text centered">Software Engineer</p>
+    <div class="links">
+      <a class="boxed-text centered shadow-animation" href="/cv.html">CV</a>
+      <a class="boxed-text centered shadow-animation" target="_blank"
+        href="https://www.linkedin.com/in/ashtoncmoore">LinkedIn</a>
+      <a class="boxed-text centered shadow-animation" target="_blank"
+        href="https://www.github.com/ashtonmoomoo">GitHub</a>
     </div>
-    <div class="posts-wrapper">
-      <h2 class="posts-title boxed-text">Posts</h2>
-      <div class="posts-container">
-        <div id="posts"></div>
-      </div>
+  </div>
+  <div class="posts-wrapper">
+    <h2 class="posts-title boxed-text centered">Posts</h2>
+    <div class="posts-container">
+      <div id="posts"></div>
     </div>
   </div>
 </body>
