@@ -7,15 +7,6 @@
   --code-bg-color: hsl(44, 100%, 85%);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #303030;
-    --boxed-text-bg: #505050;
-    --boxed-text-color: #fff;
-    --code-bg-color: #666666;
-  }
-}
-
 body {
   font-family: 'JetBrains Mono', mono;
   background-color: var(--bg);
