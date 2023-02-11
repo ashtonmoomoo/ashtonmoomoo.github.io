@@ -1,0 +1,39 @@
+:root {
+  --code-bg-color: #e3e3e3;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --code-bg-color: #666666;
+  }
+}
+
+.container {
+  max-width: 700px;
+  line-height: 140%;
+}
+
+.container > pre {
+  margin: 0;
+  padding: 8px;
+  border-radius: 6px;
+  background-color: var(--code-bg-color);
+}
+
+.container > p > code {
+  padding: 2px;
+  border-radius: 6px;
+  background-color: var(--code-bg-color);
+}
+
+.container > p {
+  margin-top: 2px;
+}
+
+.container > h2 {
+  margin: 10px 0;
+}
+
+.container > p > a {
+  color: var(--boxed-text-color);
+}

@@ -11,6 +11,7 @@ logger.add({ some_data: 'hello' });
 logger.add({ something_else: 42 });
 logger.send();
 ```
+
 in the OOP world. You could probably make this work in a React app, but then you’re in the global variable/singletons realm and tbh I didn’t want to go there. [Edit: I'm basically describing a React Context here!]
 
 ‘Ah!’ you say, ‘you should create a logger context and wrap your application with the associated providers!’
@@ -147,6 +148,7 @@ Or possibly even
 ```js
 loggerDispatch({ type: "ADD_DATA", data: { some_data: 'hello' }, send: true });
 ```
+
 Except `useReducer` maintains the state in `useState`-like fashion, where if I dispatch an action, it will re-render the component. Boo!
 
 ## Custom context backed by `useRefReducer`

@@ -1,7 +1,5 @@
-.title {
-  margin: 0 auto;
-  overflow: hidden;
-  text-align: center;
+.info {
+  font-size: clamp(100%, 4vw, 150%);
 }
 
 .description {
@@ -17,7 +15,7 @@
   margin: 0;
 }
 
-.link {
+.links > a {
   margin: 6px;
   color: var(--boxed-text-color);
 }
@@ -35,4 +33,27 @@
     box-shadow: -4px 4px black;
     transition: box-shadow 0.3s;
   }
+}
+
+.posts-container {
+  margin-top: 1em;
+}
+
+.post-title {
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.post-link {
+  color: var(--boxed-text-color);
+}
+
+.post-title {
+  display: inline-block;
+  text-decoration: underline;
+  margin: 4px 0;
+}
+
+.post-summary {
+  margin: 4px 0;
 }

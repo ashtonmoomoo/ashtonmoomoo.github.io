@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <link rel="icon" href="public/favicon.ico" />
+  <link rel="stylesheet" href="styles/global.css">
+  <link rel="stylesheet" href="styles/index.css">
+  <title>Ashton Moore</title>
+
+  <script defer src="PostCard.js"></script>
+  <script>
+    const POSTS = [{
+      id: "use-ref-reducer",
+      title: "Fun With React Hooks",
+      summary: "Creating a custom React hook that wraps useRef",
+      posted: "2023-01-14",
+      url: `/posts.html?id=use-ref-reducer`,
+    },
+    {
+      id: "dangers-of-eta-conversion",
+      title: "The Dangers of Eta Conversion in JS & TS",
+      summary: "Was that a faithful refactor you just did?",
+      posted: "2022-12-03",
+      url: `/posts.html?id=dangers-of-eta-conversion`,
+    }];
+
+    async function getPosts() {
+      const posts = document.getElementById("posts");
+
+      let postsHtml = "";
+      POSTS.forEach(p => {
+        postsHtml += `
+          <post-card>
+            <a class="post-link" slot="link-text" href="${p.url}">
+              <h3 class="post-title">
+                ${p.title}
+              </h3>
+            </a>
+            <p slot="posted">${new Date(p.posted).toLocaleDateString()}</p>
+            <p class="post-summary" slot="summary">${p.summary}</p>
+          </post-card>
+        `
+      });
+
+      posts.innerHTML = postsHtml;
+    }
+
+    window.onload = getPosts;
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="info">
+      <h1 class="boxed-text">Ashton Moore</h1>
+      <p class="boxed-text">Software Engineer</p>
+      <div class="links">
+        <a class="boxed-text shadow-animation" href="/cv">CV</a>
+        <a class="boxed-text shadow-animation" href="https://www.linkedin.com/in/ashtoncmoore">LinkedIn</a>
+        <a class="boxed-text shadow-animation" href="https://www.github.com/ashtonmoomoo">GitHub</a>
+      </div>
+    </div>
+    <div class="posts-container boxed-text">
+      <h2>Posts</h2>
+      <div id="posts"></div>
+    </div>
+  </div>
+</body>
+
+</html>

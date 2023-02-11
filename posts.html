@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <link rel="icon" href="public/favicon.ico" />
+  <link rel="stylesheet" href="styles/global.css">
+  <link rel="stylesheet" href="styles/post.css" />
+  <title>Loading...</title>
+
+  <script defer src="drawdown.js"></script>
+  <script>
+    const BASE_URL = "https://raw.githubusercontent.com/ashtonmoomoo/ashtonmoomoo.github.io/main/_posts/";
+
+    function setNotFound() {
+      document.title = 'Post not found :(';
+      container.innerHTML = '<p>Post not found :(</p>';
+    }
+
+    function setSomethingWentWrong() {
+      document.title = 'Something went wrong :(';
+      container.innerHTML = '<p>Something went wrong :(</p>';
+    }
+
+    async function getPost() {
+      const container = document.getElementById("container");
+      const postId = new URLSearchParams(window.location.search).get("id");
+      if (!postId) {
+        setNotFound();
+        return;
+      }
+
+      const ghResponse = await fetch(`${BASE_URL}${postId}.md`);
+      if (!ghResponse.ok) {
+        if (ghResponse.status === 404) {
+          setNotFound();
+        } else {
+          setSomethingWentWrong();
+        }
+        return;
+      }
+
+      const markdownContent = await ghResponse.text();
+      if (!markdown) {
+        setSomethingWentWrong();
+        return;
+      }
+
+      container.innerHTML = markdown(markdownContent);
+      document.title = document.getElementsByTagName("h1")[0].textContent;
+    }
+
+    window.onload = getPost;
+  </script>
+
+<body>
+  <div id="container" class="container boxed-text"></div>
+</body>
+</head>
+
+</html>
