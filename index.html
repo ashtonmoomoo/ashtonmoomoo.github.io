@@ -32,15 +32,17 @@
       let postsHtml = "";
       POSTS.forEach(p => {
         postsHtml += `
-          <post-card>
-            <a class="post-link" slot="link-text" href="${p.url}">
-              <h3 class="post-title">
+        <a class="post-link" href="${p.url}">
+          <div class="boxed-text shadow-animation">
+            <post-card>
+              <h3 class="post-title" slot="link-text">
                 ${p.title}
               </h3>
-            </a>
-            <p slot="posted">${new Date(p.posted).toLocaleDateString()}</p>
-            <p class="post-summary" slot="summary">${p.summary}</p>
-          </post-card>
+              <p slot="posted">${new Date(p.posted).toLocaleDateString()}</p>
+              <p class="post-summary" slot="summary">${p.summary}</p>
+            </post-card>
+          </div>
+        </a>
         `
       });
 
@@ -62,9 +64,11 @@
         <a class="boxed-text shadow-animation" href="https://www.github.com/ashtonmoomoo">GitHub</a>
       </div>
     </div>
-    <div class="posts-container boxed-text">
-      <h2>Posts</h2>
-      <div id="posts"></div>
+    <div class="posts-wrapper">
+      <h2 class="posts-title boxed-text">Posts</h2>
+      <div class="posts-container">
+        <div id="posts"></div>
+      </div>
     </div>
   </div>
 </body>
