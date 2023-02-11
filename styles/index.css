@@ -20,32 +20,29 @@
   color: var(--boxed-text-color);
 }
 
-@media (prefers-color-scheme: light) {
-  .shadow {
-    box-shadow: -4px 4px black;
-  }
-  
-  .shadow-animation {
-    transition: box-shadow 0.3s;
-  }
-  
-  .shadow-animation:hover {
-    box-shadow: -4px 4px black;
-    transition: box-shadow 0.3s;
-  }
+.shadow {
+  box-shadow: -4px 4px black;
+}
+
+.shadow-animation {
+  transition: box-shadow 0.3s;
+}
+
+.shadow-animation:hover {
+  box-shadow: -4px 4px black;
+  transition: box-shadow 0.3s;
+}
+
+.posts-wrapper {
+  margin: 0 auto;
 }
 
 .posts-container {
-  margin-top: 1em;
-}
-
-.post-title {
   margin: 0 auto;
-  overflow: hidden;
 }
 
 .post-link {
-  color: var(--boxed-text-color);
+  text-decoration: none;
 }
 
 .post-title {

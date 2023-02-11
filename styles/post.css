@@ -1,19 +1,11 @@
-:root {
-  --code-bg-color: #e3e3e3;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --code-bg-color: #666666;
-  }
-}
-
 .container {
-  max-width: 700px;
+  width: max(60%, 320px);
+  margin: 0 auto;
   line-height: 140%;
 }
 
 .container > pre {
+  overflow: scroll;
   margin: 0;
   padding: 8px;
   border-radius: 6px;

@@ -1,17 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=JetBrains+Mono:regular,bold,italic&subset=latin,latin-ext');
 
 :root {
-  --bg:  #6f9d6d;
-  --boxed-text-bg: #fff;
+  --boxed-text-bg: hsl(44, 100%, 75%);
+  --bg: hsl(80, 48%, 70%);
   --boxed-text-color: #000;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #303030;
-    --boxed-text-bg: #505050;
-    --boxed-text-color: #fff;
-  }
+  --code-bg-color: hsl(44, 100%, 85%);
 }
 
 body {
@@ -32,5 +25,6 @@ body {
   max-width: 100%;
   padding: 6px 12px;
   background-color: var(--boxed-text-bg);
+  border: solid black 1px;
   border-radius: 6px;
 }
