@@ -49,3 +49,7 @@ body {
   box-shadow: -4px 4px black;
   transition: box-shadow 0.3s;
 }
+
+.info > p {
+  font-style: italic;
+}
