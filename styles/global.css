@@ -50,6 +50,22 @@ body {
   transition: box-shadow 0.3s;
 }
 
+.rotate {
+  transition: transform .1s ease-in-out;
+}
+
+.rotate:hover {
+  transition: transform .1s ease-in-out;
+}
+
+.rotate:hover:nth-child(odd) {
+  transform: rotate(3deg);
+}
+
+.rotate:hover:nth-child(even) {
+  transform: rotate(-3deg);
+}
+
 .info > p {
   font-style: italic;
 }
