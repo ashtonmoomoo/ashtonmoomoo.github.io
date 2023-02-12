@@ -50,19 +50,17 @@ body {
   transition: box-shadow 0.3s;
 }
 
-.rotate {
-  transition: transform .1s ease-in-out;
+.shadow-animation-rotate {
+  transition: box-shadow 0.3s, transform .1s;
 }
 
-.rotate:hover {
-  transition: transform .1s ease-in-out;
-}
-
-.rotate:hover:nth-child(odd) {
+.shadow-animation-rotate:hover:nth-child(odd) {
+  box-shadow: -4px 4px black;
   transform: rotate(3deg);
 }
 
-.rotate:hover:nth-child(even) {
+.shadow-animation-rotate:hover:nth-child(even) {
+  box-shadow: -4px 4px black;
   transform: rotate(-3deg);
 }
 
