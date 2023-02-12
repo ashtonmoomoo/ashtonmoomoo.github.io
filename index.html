@@ -32,11 +32,11 @@
       POSTS.forEach(p => {
         postsHtml += `
         <a class="post-link boxed-text centered shadow-animation" href="${p.url}">
-          <h3 class="post-title" slot="link-text">
+          <h3 class="post-title">
             ${p.title}
           </h3>
-          <p slot="posted">${new Date(p.posted).toLocaleDateString()}</p>
-          <p class="post-summary" slot="summary">${p.summary}</p>
+          <p>${new Date(p.posted).toLocaleDateString()}</p>
+          <p class="post-summary">${p.summary}</p>
         </a>
         `
       });
