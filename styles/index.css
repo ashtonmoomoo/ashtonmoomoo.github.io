@@ -15,9 +15,11 @@
 
 .posts-container {
   margin: 0 auto;
+  width: max(60%, 320px);
 }
 
 .post-link {
+  display: block;
   text-decoration: none;
 }
 

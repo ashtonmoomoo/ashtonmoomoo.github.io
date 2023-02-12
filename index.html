@@ -31,14 +31,12 @@
       let postsHtml = "";
       POSTS.forEach(p => {
         postsHtml += `
-        <a class="post-link" href="${p.url}">
-          <div class="boxed-text centered shadow-animation">
-            <h3 class="post-title" slot="link-text">
-              ${p.title}
-            </h3>
-            <p slot="posted">${new Date(p.posted).toLocaleDateString()}</p>
-            <p class="post-summary" slot="summary">${p.summary}</p>
-          </div>
+        <a class="post-link boxed-text centered shadow-animation" href="${p.url}">
+          <h3 class="post-title" slot="link-text">
+            ${p.title}
+          </h3>
+          <p slot="posted">${new Date(p.posted).toLocaleDateString()}</p>
+          <p class="post-summary" slot="summary">${p.summary}</p>
         </a>
         `
       });
