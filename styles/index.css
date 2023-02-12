@@ -19,6 +19,7 @@
 }
 
 .post-link {
+  width: max(50%, 480px);
   display: block;
   text-decoration: none;
 }
