@@ -1,6 +1,6 @@
 {
-  "name": "astro",
-  "version": "2.3.0",
+  "name": "ashtonmoore.dev",
+  "version": "1.0.0",
   "scripts": {
     "dev": "astro check --watch & astro dev",
     "start": "astro dev",
