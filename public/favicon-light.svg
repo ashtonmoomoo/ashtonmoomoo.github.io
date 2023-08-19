@@ -1,0 +1,32 @@
+<svg version="1.2"
+     viewBox="0 220 820 560"
+     xmlns="http://www.w3.org/2000/svg">
+
+  <!-- First A stroke -->
+  <polyline points="30,750 220,250" stroke="black" stroke-width="60"
+    stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+
+  <!-- Second A stroke -->
+  <polyline points="220,250 410,750" stroke="black" stroke-width="60"
+    stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+
+  <!-- Bar on A -->
+  <polyline points="125,500 315,500" stroke="black" stroke-width="60"
+    stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+
+  <!-- First M stroke -->
+  <polyline points="315,500 410,250" stroke="black" stroke-width="60"
+    stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+
+  <!-- Second M stroke -->
+  <polyline points="410,250 600,750" stroke="black" stroke-width="60"
+    stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+
+  <!-- Third M stroke -->
+  <polyline points="505,500 600,250" stroke="black" stroke-width="60"
+    stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+
+  <!-- Fourth M stroke -->
+  <polyline points="600,250 790,750" stroke="black" stroke-width="60"
+    stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+</svg>
