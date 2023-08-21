@@ -120,26 +120,32 @@ const { activeNav } = Astro.props;
     @apply mx-auto flex max-w-3xl flex-col items-center justify-between sm:flex-row;
   }
   .top-nav-wrap {
-    @apply relative flex w-full items-start justify-between p-4 sm:items-center sm:py-8;
+    @apply relative flex w-full items-center justify-between p-4 sm:items-center sm:py-8;
   }
   .logo {
     @apply text-xl font-semibold sm:static sm:text-2xl;
   }
   .hamburger-menu {
-    @apply self-end p-2 sm:hidden;
+    @apply p-2 sm:hidden;
   }
   .hamburger-menu svg {
     @apply h-6 w-6 scale-125 fill-skin-base;
   }
 
   nav {
-    @apply flex w-full flex-col items-center bg-skin-fill sm:ml-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0;
+    @apply bg-skin-fill sm:flex sm:w-auto sm:border-0 sm:ml-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0;
+  }
+  nav.is-open {
+    @apply absolute top-5 end-4 w-32 border border-skin-line;
+  }
+  nav.is-open .hamburger-menu {
+    @apply pl-24 pr-3 pt-2;
   }
   nav ul {
-    @apply mt-4 grid w-44 grid-cols-2 grid-rows-3 gap-x-2 gap-y-2 sm:ml-0 sm:mt-0 sm:w-auto sm:gap-x-5 sm:gap-y-0;
+    @apply sm:ml-0 sm:mt-0 sm:w-auto sm:gap-x-5 sm:gap-y-0;
   }
   nav ul li {
-    @apply col-span-2 flex items-center justify-center;
+    @apply flex items-center justify-center;
   }
   nav ul li a {
     @apply w-full px-4 py-3 text-center font-medium hover:text-skin-accent sm:my-0 sm:px-2 sm:py-1;
@@ -164,9 +170,6 @@ const { activeNav } = Astro.props;
     @apply scale-125 hover:rotate-12 sm:scale-100;
   }
 
-  .menu-icon line {
-    @apply transition-opacity duration-75 ease-in-out;
-  }
   .menu-icon .close {
     opacity: 0;
   }
@@ -183,15 +186,27 @@ const { activeNav } = Astro.props;
   const menuBtn = document.querySelector(".hamburger-menu");
   const menuIcon = document.querySelector(".menu-icon");
   const menuItems = document.querySelector("#menu-items");
+  const navMenu = document.getElementById('nav-menu');
 
-  menuBtn?.addEventListener("click", () => {
-    const menuExpanded = menuBtn.getAttribute("aria-expanded") === "true";
+  const toggleMenu = () => {
+    const menuExpanded = menuBtn?.getAttribute("aria-expanded") === "true";
     menuIcon?.classList.toggle("is-active");
-    menuBtn.setAttribute("aria-expanded", menuExpanded ? "false" : "true");
-    menuBtn.setAttribute(
+    menuBtn?.setAttribute("aria-expanded", menuExpanded ? "false" : "true");
+    menuBtn?.setAttribute(
       "aria-label",
       menuExpanded ? "Open Menu" : "Close Menu"
     );
     menuItems?.classList.toggle("display-none");
+    navMenu?.classList.toggle("is-open")
+  }
+
+  menuBtn?.addEventListener("click", toggleMenu);
+
+  document.addEventListener("click", (e) => {
+    if (!navMenu?.contains(e.target as Node)) {
+      if (navMenu?.classList?.contains('is-open')) {
+        toggleMenu();
+      }
+    }
   });
 </script>
